@@ -8,7 +8,7 @@
     "clean": "npx del dist",
     "serve": "npx eleventy --serve",
     "dev": "npm run clean && concurrently \"npm run css:watch\" \"npm run serve\"",
-    "build": "ELEVENTY_PRODUCTION=true npx eleventy && NODE_ENV=production npm run css:build && npx workbox generateSW workbox-config.js",
+    "build": "NODE_ENV=production npm run css:build && ELEVENTY_PRODUCTION=true npx eleventy && npx workbox generateSW workbox-config.js",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
