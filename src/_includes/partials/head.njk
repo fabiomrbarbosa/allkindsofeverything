@@ -13,7 +13,7 @@
 {% endif %}
 {% set pageImageAlt = coverImage.alt or pageDescription %}
 
-{% set devCss %}
+{% set css %}
   {% include "styles/main.css" %}
 {% endset %}
 
@@ -40,11 +40,7 @@
 <meta name="twitter:creator" content="@fabiomrbarbosa" />
 
 {# Assets #}
-{% if project.environment === 'production' %}
-  <!-- INLINE CSS-->
-{% else %}
-  <style>{{ devCss | safe }}</style>
-{% endif %}
+<style>{{ css | safe }}</style>
 
 <link rel="icon" href="/assets/images/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/images/icon-192x192.png">
