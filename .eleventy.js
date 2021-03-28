@@ -28,8 +28,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("readableDate", require(`${filters}/readableDate.js`));
   eleventyConfig.addFilter("mdInline", require(`${filters}/mdInline.js`));
 
-  eleventyConfig.addTransform("purgeInlineCSS", require(`${transforms}/purgeInlineCSS.js`));
-
   eleventyConfig.addCollection("articles", (collection) => {
     return collection.getAllSorted().filter((page) => page.data.contentType === "article");
   });
