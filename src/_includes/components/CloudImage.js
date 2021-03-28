@@ -7,7 +7,7 @@ module.exports = function ({ title = "", description = "" } = {}) {
     );
   }
 
-  let cloudName = "https://res.cloudinary.com/fabiomrbarbosa/image/upload/";
+  let cloudName = "https://res.cloudinary.com/allkindsofeverything/image/upload/";
   let imageConfig = ["w_1280", "h_669", "c_fill", "q_auto", "f_auto"].join(",");
   let titleConfig = [
     "/w_740",

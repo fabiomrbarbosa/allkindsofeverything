@@ -8,12 +8,12 @@ module.exports = {
   },
   author: {
     name: 'Fábio M.R. Barbosa',
-    email: 'hello@allkindsofeverything.net'
+    email: 'hello@fabiomrbarbosa.com'
   },
   contacts: [
     {
       name: 'Email',
-      url: 'mailto:hello@allkindsofeverything.net'
+      url: 'mailto:fabio@allkindsofeverything.net'
     },
     {
       name: 'LinkedIn',
