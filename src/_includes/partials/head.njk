@@ -40,7 +40,11 @@
 <meta name="twitter:creator" content="@fabiomrbarbosa" />
 
 {# Assets #}
-<style>{{ css | safe }}</style>
+{% if project.environment == "production" %}
+  <style>{% include "styles/main.css" ignore missing %}</style>
+{% else %}
+  <link rel="stylesheet" href="/assets/styles/main.css" type="text/css" />
+{% endif %}
 
 <link rel="icon" href="/assets/images/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/images/icon-192x192.png">

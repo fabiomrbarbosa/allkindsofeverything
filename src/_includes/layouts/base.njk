@@ -19,10 +19,6 @@
         navigator.serviceWorker.register("/sw.js");
       })
     };
-
-    function setCookie(cname, cvalue) {
-      document.cookie = cname + "=" + cvalue + ";path=/;secure;samesite=strict";
-    }
     </script>
 
     <!-- Current page: {{ page.url | url }} -->
