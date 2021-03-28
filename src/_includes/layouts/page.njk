@@ -3,14 +3,21 @@ layout: layouts/base.njk
 templateClass: tmpl-page
 permalink: /{{ eleventyNavigation.key | slug }}/
 ---
-{% Heading {
-  title: publicTitle,
-  subtitle: description,
-  className: 'heading--page'
-} %}
 
-<div class="content inner">
-  <div class="font-serif mx-auto text-lg prose max-w-prose md:text-2xl mb-24">
-    {{ content | safe }}
+<article>
+  {% Heading {
+    title: publicTitle,
+    subtitle: description,
+    imageSrc: coverImage.src,
+    imageAlt: coverImage.alt,
+    imageCaption: coverImage.caption,
+    imageAttribution: coverImage.attribution,
+    className: 'heading--page'
+  } %}
+
+  <div class="content inner">
+    <div class="prose-body">
+      {{ content | safe }}
+    </div>
   </div>
-</div>
+</article>

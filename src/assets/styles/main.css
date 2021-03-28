@@ -46,4 +46,7 @@ body:before {
   .inner {
     @apply container mx-auto py-8 px-6 lg:px-16;
   }
+  .prose-body {
+    @apply font-serif mx-auto prose prose-lg max-w-prose md:prose-xl mb-24;
+  }
 }
