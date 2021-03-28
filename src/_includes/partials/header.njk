@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="font-display text-lg sm:pt-12 inner md:grid md:grid-cols-2">
+    <a class="block mb-4" href="{{ '/' | url }}" aria-label="Home link">
+      <div class="w-16 mb-6">
+        {% InlineIcon {
+          file: "../../assets/images/logo.svg",
+          location: "header"
+        } %}
+      </div>
+      <p class="block text-3xl font-semibold leading-7">
+        {{ metadata.title }}
+      </p>
+    </a>
+
+    {%- include "partials/menu.njk" -%}
+  </div>
+</header>

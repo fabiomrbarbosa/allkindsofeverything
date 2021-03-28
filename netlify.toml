@@ -1,0 +1,16 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+  environment = { NODE_VERSION = "15.8.0", NPM_VERSION = "7.5.0", NODE_ENV = "production" }
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[[redirects]]
+  from = "/*"
+  to = "/pt/:splat"
+  status = 302
+  conditions = {Language = ["pt", "pt-PT", "pt-BR"]}

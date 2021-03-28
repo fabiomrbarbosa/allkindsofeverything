@@ -1,0 +1,50 @@
+{
+  "name": "allkindsofeverything",
+  "version": "1.0.0",
+  "description": "All Kinds of Everything, a blog about Eurovision and other queer matters",
+  "scripts": {
+    "css:watch": "postcss src/assets/styles/main.css -o src/_includes/styles/main.css --watch",
+    "css:build": "postcss src/assets/styles/main.css -o dist/assets/styles/main.css",
+    "clean": "npx del dist",
+    "serve": "npx eleventy --serve",
+    "dev": "npm run clean && concurrently \"npm run css:watch\" \"npm run serve\"",
+    "build": "ELEVENTY_PRODUCTION=true npx eleventy && NODE_ENV=production npm run css:build && npx workbox generateSW workbox-config.js",
+    "debug": "DEBUG=* npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fabiomrbarbosa/allkindsofeverything.git"
+  },
+  "author": {
+    "name": "Fábio M.R. Barbosa",
+    "email": "hello@fabiomrbarbosa.com",
+    "url": "https://fabiomrbarbosa.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabiomrbarbosa/allkindsofeverything/issues"
+  },
+  "homepage": "https://github.com/fabiomrbarbosa/allkindsofeverything#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy-plugin-rss": "^1.1.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.5",
+    "concurrently": "^6.0.0",
+    "del-cli": "^3.0.1",
+    "eleventy-plugin-embed-everything": "^1.12.0",
+    "image-size": "^0.9.7",
+    "luxon": "^1.26.0",
+    "markdown-it": "^12.0.4",
+    "markdown-it-anchor": "^7.1.0",
+    "markdown-it-attrs": "^4.0.0",
+    "markdown-it-external-links": "0.0.6",
+    "node-sass": "^5.0.0",
+    "postcss-cli": "^8.3.1",
+    "purgecss": "^4.0.3",
+    "tailwindcss": "^2.0.4",
+    "workbox-cli": "^6.1.2"
+  }
+}

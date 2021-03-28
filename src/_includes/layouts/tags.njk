@@ -1,0 +1,21 @@
+---
+permalink: /tags/
+layout: layouts/base.njk
+translationKey: tags
+---
+{% Heading {
+  title: 'Tags'
+} %}
+
+{% ArchiveList {
+  className: 'tags--archive'
+} %}
+
+  <div class="taglist">
+  {% for tag in collections['tags_' + locale] %}
+    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+    <a href="{{ tagUrl }}" class="tag">{{ tag }}</a>
+  {% endfor %}
+  </div>
+
+{% endArchiveList %}

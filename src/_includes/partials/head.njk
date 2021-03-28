@@ -1,0 +1,56 @@
+{# Variables #}
+{% set pageTitle = computedData.title or title %}
+{% set pageTitleSocial = publicTitle or pageTitle or metadata.title %}
+{% set pageDescription = computedData.description or description or dictionary.site.subtitle %}
+{% set pageType = 'article' if contentType == 'article' else 'webpage' %}
+
+{% if coverImage %}
+  {% set pageImage = coverImage.src | url %}
+{% else %}
+  {% set pageImage %}
+    {% CloudImage {title: pageTitleSocial, description: pageDescription } %}
+  {% endset %}
+{% endif %}
+{% set pageImageAlt = coverImage.alt or pageDescription %}
+
+{% set devCss %}
+  {% include "styles/main.css" %}
+{% endset %}
+
+{# Meta tags #}
+<meta charset="utf-8">
+<title>{{ pageTitle + ' |' if pageTitle }} {{ metadata.title }}</title>
+<meta name="description" content="{{ pageDescription }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e4655c">
+<meta name="image" content="{{ pageImage }}" />
+
+{# OpenGraph tags #}
+<meta property="og:url" content="https://fabiomrbarbosa.com{{ page.url }}"/>
+<meta property="og:type" content="{{ pageType }}" />
+<meta property="og:title" content="{{ pageTitle }}" />
+<meta property="og:description" content="{{ pageDescription }}" />
+<meta property="og:image" content="{{ pageImage }}" />
+<meta property="og:image:alt" content="{{ pageImageAlt }}" />
+
+{# Twitter Card tags #}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fabiomrbarbosa" />
+<meta name="twitter:creator" content="@fabiomrbarbosa" />
+
+{# Assets #}
+{% if project.environment === 'production' %}
+  <!-- INLINE CSS-->
+{% else %}
+  <style>{{ devCss | safe }}</style>
+{% endif %}
+
+<link rel="icon" href="/assets/images/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/images/icon-192x192.png">
+
+{# RSS Feed #}
+<link rel="alternate" href="/{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+
+{# Manifest + Service Worker #}
+<link rel="manifest" href="/manifest.webmanifest">

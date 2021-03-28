@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-home
+permalink: /
+---
+{% Heading {
+  title: dictionary.home.welcome,
+  subtitle: dictionary.home.title,
+  imageSrc: "assets/images/heading_home.jpg",
+  imageAlt: "Fábio Barbosa's portrait",
+  className: "heading--home my-24"
+} %}
+
+{% ArchiveList {
+  title: dictionary.home.contacts,
+  className: 'contacts'
+} %}
+
+  {%- include "partials/contact.njk" -%}
+
+{% endArchiveList %}
+
+{% ArchiveList {
+  title: dictionary.postlist.title,
+  linkText: dictionary.postlist.link,
+  linkTarget: '/' + dictionary.content.articles.slug + '/',
+  className: 'feed'
+} %}
+
+  {% set postlist = collections.articles | head(-3) %}
+  {%- include "partials/postlist.njk" -%}
+
+{% endArchiveList %}
+
+{%- include "partials/subscribe.njk" -%}

@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-page
+permalink: /{{ eleventyNavigation.key | slug }}/
+---
+{% Heading {
+  title: publicTitle,
+  subtitle: description,
+  className: 'heading--page'
+} %}
+
+<div class="content inner">
+  <div class="font-serif mx-auto text-lg prose max-w-prose md:text-2xl mb-24">
+    {{ content | safe }}
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-archive
+permalink: /{{ page.fileSlug }}/
+---
+{% Heading {
+  title: dictionary.archive.title,
+  subtitle: dictionary.archive.subtitle,
+  className: 'heading--archive'
+} %}
+
+{% ArchiveList {
+  className: 'feed'
+} %}
+
+  {% set postlist = collections.articles %}
+  {%- include "partials/postlist.njk" -%}
+
+{% endArchiveList %}
+
+{%- include "partials/subscribe.njk" -%}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ locale }}" dir="{{ dir }}"
+  class="
+  {% if templateClass %}{{ templateClass }}{% endif %}
+  {% if translationKey %}page-{{ translationKey }}{% endif %}
+  {% if slug %}page-{{ slug }}{% endif %}>">
+  <head>
+    {%- include "partials/head.njk" -%}
+  </head>
+  <body>
+
+    {%- include "partials/header.njk" -%}
+    <main class="site-main">{{ content | safe }}</main>
+    {%- include "partials/footer.njk" -%}
+
+    <script>
+    if ("serviceWorker" in navigator){
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js");
+      })
+    };
+
+    function setCookie(cname, cvalue) {
+      document.cookie = cname + "=" + cvalue + ";path=/;secure;samesite=strict";
+    }
+    </script>
+
+    <!-- Current page: {{ page.url | url }} -->
+  </body>
+</html>

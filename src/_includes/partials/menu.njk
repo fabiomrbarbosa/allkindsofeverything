@@ -1,0 +1,10 @@
+<nav class="flex flex-col flex-wrap text-2xl md:mt-16 md:flex-row md:space-x-6">
+  {%- for entry in collections.all | eleventyNavigation -%}
+
+  <a {% if page.url == entry.url %} aria-current="page"{% endif %}
+    class="hover:underline focus:underline {% if nav.url == page.url %} underline{% endif %}"
+    href="{{ entry.url | url }}">{{ entry.title }}
+  </a>
+
+  {%- endfor -%}
+</nav>

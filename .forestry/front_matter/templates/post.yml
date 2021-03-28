@@ -1,0 +1,52 @@
+---
+label: Post
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: Title
+- type: text
+  name: description
+  label: Description
+- type: datetime
+  name: date
+  label: Date
+  config:
+    date_format: YYYY-MM-DD
+    display_utc: true
+- name: coverImage
+  type: field_group
+  config: {}
+  fields:
+  - name: src
+    type: file
+    config:
+      maxSize: 64
+    label: Source
+  - name: alt
+    type: text
+    config:
+      required: false
+    label: Alt Text
+  - name: caption
+    type: text
+    config:
+      required: false
+    label: Caption
+  - name: attribution
+    type: text
+    config:
+      required: false
+    label: Attribution
+  label: Cover Image
+- name: isFeatured
+  type: boolean
+  label: Featured Post?
+  default: false
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- type: text
+  name: translationKey
+  label: Translation Key
