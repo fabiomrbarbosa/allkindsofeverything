@@ -1,7 +1,17 @@
-<footer class="site-footer text-white bg-gray-900" role="contentinfo">
+<footer class="text-white bg-gray-900 site-footer" role="contentinfo">
   <div class="inner">
     <div class="site-footer__links">
-      {%- include "partials/menu.njk" -%}
+      <nav aria-label="footer-navigation" class="flex flex-col flex-wrap text-2xl md:mt-16 md:flex-row md:space-x-6">
+        {%- for entry in collections.all | eleventyNavigation -%}
+
+        <a {% if page.url == entry.url %} aria-current="page"{% endif %}
+          class="hover:underline focus:underline {% if nav.url == page.url %} underline{% endif %}"
+          href="{{ entry.url | url }}">{{ entry.title }}
+        </a>
+
+        {%- endfor -%}
+      </nav>
+
       {%- include "partials/contact.njk" -%}
     </div>
 

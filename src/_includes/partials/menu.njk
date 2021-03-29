@@ -1,4 +1,4 @@
-<nav class="flex flex-col flex-wrap text-2xl md:mt-16 md:flex-row md:space-x-6">
+<nav aria-label="navigation" class="flex flex-col flex-wrap text-2xl md:mt-16 md:flex-row md:space-x-6">
   {%- for entry in collections.all | eleventyNavigation -%}
 
   <a {% if page.url == entry.url %} aria-current="page"{% endif %}

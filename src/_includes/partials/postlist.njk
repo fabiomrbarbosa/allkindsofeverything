@@ -15,10 +15,10 @@
     {% endif %}
 
     <div class="sm:col-span-3 md:col-span-2">
-      <a href="{{ post.url | url }}" class="block font-display text-3xl hover:underline focus:underline">{{ post.data.title }}</a>
+      <a href="{{ post.url | url }}" class="block text-3xl font-display hover:underline focus:underline">{{ post.data.title }}</a>
 
       {% if post.data.description %}<p class="postlist__description">{{ post.data.description }}</p>{% endif %}
-      <time class="block text-lg text-gray-600 postlist-date" datetime="{{ post.date | machineDate }}">{{ post.date | readableDate(locale) }}</time>
+      <time class="block text-lg text-gray-600 postlist-date" datetime="{{ post.date | machineDate }}">{{ post.date | readableDate }}</time>
 
       {% for tag in post.data.tags %}
         {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
