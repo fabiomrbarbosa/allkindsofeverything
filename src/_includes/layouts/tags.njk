@@ -12,7 +12,7 @@ translationKey: tags
 } %}
 
   <div class="taglist">
-  {% for tag in collections.all %}
+  {% for tag in collections.tags %}
     {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
     <a href="{{ tagUrl }}" class="tag">{{ tag }}</a>
   {% endfor %}
