@@ -1,5 +1,5 @@
 module.exports = {
-  cacheId: "fabiomrbarbosa-pwa",
+  cacheId: "allkindsofeverything-pwa",
   globDirectory: "dist/",
   globPatterns: [
     "**/*.{html,js,woff2,webmanifest}"

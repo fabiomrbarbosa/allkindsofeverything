@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "All Kinds of Everything, a blog about Eurovision and other queer matters",
   "scripts": {
-    "clean": "npx rimraf dist src/_includes/styles",
+    "clean": "npx rimraf dist",
     "dev:eleventy": "ELEVENTY_ENV=development npx @11ty/eleventy --serve",
     "prod:eleventy": "ELEVENTY_ENV=production npx @11ty/eleventy",
     "dev:postcss": "postcss src/assets/styles/main.css -o src/_includes/styles/main.css --config ./postcss.config.js --watch",
     "prod:postcss": "postcss src/assets/styles/main.css -o src/_includes/styles/main.css --config ./postcss.config.js",
-    "postcss-build": "postcss src/assets/styles/main.css -o src/_includes/styles/main.css --config ./postcss.config.js",
     "dev": "NODE_ENV=development npm-run-all clean --parallel dev:*",
-    "build": "NODE_ENV=production npm-run-all clean postcss-build --parallel prod:* && npx workbox generateSW workbox-config.js",
+    "build": "NODE_ENV=production npm-run-all clean --parallel prod:* && npx workbox generateSW workbox-config.js",
     "debug": "DEBUG=* npx @11ty/eleventy"
   },
   "repository": {
